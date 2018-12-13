@@ -1,0 +1,603 @@
+<div class="container-fluid addForm">
+    <button type="button" class="close" mat-dialog-close aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <mat-tab-group>
+        <mat-tab label="General Info">
+  <form [formGroup]="addUserForm" (ngSubmit)="onCreateUser()" class="userInfo">
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75" >
+        <input type="text" matInput formControlName="firstName" placeholder="First Name">
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <input type="text" matInput formControlName="lastName" placeholder="Last Name">
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <input type="text" matInput formControlName="role" placeholder="Role">
+      </mat-form-field>
+    </div>
+
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <mat-select formControlName="team" placeholder="Pick a team">
+          <mat-option *ngFor="let t of teamFormOptions" [value]="t.value">{{t.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <mat-select formControlName="app" placeholder="What app are you using?">
+          <mat-option *ngFor="let a of appFormOptions" [value]="a.value">{{a.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <mat-select formControlName="manager" placeholder="Pick a manager">
+          <mat-option *ngFor="let m of managerFormOptions" [value]="m.value">{{m.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <mat-select formControlName="location" placeholder="Pick a location">
+          <mat-option *ngFor="let l of locationFormOptions" [value]="l.value">{{l.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <mat-select formControlName="company" placeholder="Pick a company">
+          <mat-option *ngFor="let c of companyFormOptions" [value]="c.value">{{c.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center">
+      <mat-form-field class="w-75">
+        <input matInput [matDatepicker]="picker" placeholder="Birthday">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker  #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row justify-content-center">
+      <button mat-raised-button color="primary" type="submit" [disabled]="addUserForm.invalid">Add New Resource</button>
+    </div>
+  </form>
+</mat-tab>
+<mat-tab label="Secondary Team/Role/App">
+  <br>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+                          <label
+                            for="inputZip"
+                            class="font-weight-bold text-center"
+                            aria-placeholder="Resource Code"
+                            >Team</label
+                          >
+                          <select class="custom-select">
+                                  <option selected>Team</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                     </select>
+
+          </th>
+          <th scope="col">
+
+                  <label
+                    for="inputZip"
+                    class="font-weight-bold text-center"
+                    aria-placeholder="Resource Code"
+                    >Role</label
+                  >
+                  <select class="custom-select">
+                          <option selected>Role</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+             </select>
+
+              </th>
+          <th scope="col">
+
+                          <label
+                            for="inputZip"
+                            class="font-weight-bold"
+                            aria-placeholder="Resource Code"
+                            >App</label
+                          >
+                          <select class="custom-select">
+                                  <option selected>App</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                     </select>
+
+          </th>
+          <th scope="col">
+                  <button
+                  class="btn btn-light my-2 my-sm-0 addResource1 rounded-bottom"
+                  type="submit">
+                  <i class="fas fa-user-plus icon-3x "></i> Add Row
+                </button>
+
+          </th>
+        </tr>
+      </thead>
+      </table>
+  </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class=" col-md-8">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a
+            class="nav-item nav-link active"
+            id="nav-home-tab"
+            data-toggle="tab"
+            href="#nav-home"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="true"
+            >General Info</a
+          >
+          <a
+            class="nav-item nav-link"
+            id="nav-profile-tab"
+            data-toggle="tab"
+            href="#nav-profile"
+            role="tab"
+            aria-controls="nav-profile"
+            aria-selected="false"
+            >Secondary Team Role/App</a
+          >
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+        >
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="First name"
+                  [(ngModel)]="enteredFirstName"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Last name"
+                  [(ngModel)]="enteredLastName"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >Resource Code</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Resource Code"
+                />
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Is this a resource manager?</label
+                >
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Is the resource in Team Sam?</label
+                >
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Manager
+                </label>
+                <br />
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Primary Team</label
+                >
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Primary Role</label
+                >
+                <br />
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Primary Application</label
+                >
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >Core Skill</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Core Skill"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Company</label
+                >
+                <br />
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Location</label
+                >
+                <br />
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Office City Location"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >APM Role</label
+                >
+                <br />
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Work Location</label
+                >
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label
+                  for="inputZip"
+                  class="font-weight-bold"
+                  aria-placeholder="Resource Code"
+                  >Closest Office</label
+                >
+                <mat-form-field>
+                  <select matNativeControl required>
+                    <option value="no" class="border">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </mat-form-field>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Email"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold">FTE Level</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="FTE Level"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold">Rate</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Please rate by input *"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >Hrs Per Week</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputZip"
+                  placeholder="Hours/Week"
+                />
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >Work Anniversary Date</label
+                >
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >Roll off date</label
+                >
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold"
+                  >Birthdate (Pick a day)</label
+                >
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-group col-md-2">
+                <label for="inputZip" class="font-weight-bold">Note</label>
+                <textarea
+                  class="form-control"
+                  aria-label="With textarea"
+                ></textarea>
+              </div>
+            </li>
+          </ul>
+          <br />
+          <br />
+          <button type="button" class="btn btn-primary adduserBtn">
+            Save Changes
+          </button>
+          <button type="button" class="btn btn-danger adduserBtn">
+            Delete
+          </button>
+          <button
+            class="btn btn-outline-success my-2 my-sm-0 addResource1 rounded-bottom adduserBtn"
+            type="submit"
+            (click)="onCreateUser()"
+          >
+            <i class="fas fa-user-plus icon-3x "></i> Add New Resource
+          </button>
+        </div>
+
+
+        <div
+          class="tab-pane fade"
+          id="nav-profile"
+          role="tabpanel"
+          aria-labelledby="nav-profile-tab"
+        >
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <label
+                    for="inputZip"
+                    class="font-weight-bold text-center"
+                    aria-placeholder="Resource Code"
+                    >Team</label
+                  >
+                  <select class="custom-select">
+                    <option selected>Team</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                  </select>
+                </th>
+                <th scope="col">
+                  <label
+                    for="inputZip"
+                    class="font-weight-bold text-center"
+                    aria-placeholder="Resource Code"
+                    >Role</label
+                  >
+                  <select class="custom-select">
+                    <option selected>Role</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                  </select>
+                </th>
+                <th scope="col">
+                  <label
+                    for="inputZip"
+                    class="font-weight-bold"
+                    aria-placeholder="Resource Code"
+                    >App</label
+                  >
+                  <select class="custom-select">
+                    <option selected>App</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                  </select>
+                </th>
+                <th scope="col">
+                  <button
+                    class="btn btn-light my-2 my-sm-0 addResource1 rounded-bottom"
+                    type="submit"
+                  >
+                    <i class="fas fa-user-plus icon-3x "></i> Add Row
+                  </button>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

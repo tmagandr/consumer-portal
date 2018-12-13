@@ -1,0 +1,120 @@
+<div id="sideBar">
+  <i class="fas fa-search-plus search-3x"> Search Resources</i>
+  <hr />
+  <input type="checkbox" aria-label="Checkbox for following text input" /> Show
+  rolled off only
+<form [formGroup]="searchUserForm">
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="US DoMain Id"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="domainId"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="First Name"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="firstName"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Last Name"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="lastName"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Managers"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="managers"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Companies"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="companies"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Teams"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="teams"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="City"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="city"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Location"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="location"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Roles"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="roles"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Core:  Skills"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="skills"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Application"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="application"
+
+  />
+  <input
+    type="text"
+    class="form-control border-left"
+    placeholder="Work Location"
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+    formControlName="workLocation"
+  />
+  <br />
+  <button type="button" class="btn btn-primary searchBtn">Search</button>
+
+  <button type="button" class="btn btn-secondary clrFilter" (click)= "onResetForm()">
+    Clear Filter
+  </button>
+</form>

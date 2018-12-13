@@ -1,0 +1,25 @@
+.form-control .domain{
+  width: 70%;
+}
+
+.card-title{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.adduserBtn{
+  margin-right: 30px;
+  margin-left: 50px;
+}
+
+.userInfo{
+  margin-left: 50px;
+}
+
+.birthday{
+  padding-left: 50px
+}
+
+.addForm{
+  width: 100px;
+  overflow-x: hidden;
+}

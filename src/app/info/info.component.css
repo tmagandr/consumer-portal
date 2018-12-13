@@ -1,0 +1,65 @@
+#sideBar {
+  float: left;
+  width: 15%;
+  height: 100%;
+  margin:10px;
+}
+
+#mainContent {
+  width: 100% !important;
+  float: right;
+  margin-top: 47px;
+}
+
+.form-control{
+  margin-top: 10px;
+}
+
+.searchBtn{
+  margin: 10px;
+}
+
+.clrFilter{
+  margin:10px;
+}
+
+.addResource{
+  float: right;
+  margin-right: 20px;
+}
+.table{
+  width: 100%;
+  margin-top: 40px;
+  margin-left: 0
+}
+
+.paginator{
+  float: right;
+  padding-right: 50px
+}
+
+.add{
+  cursor: pointer;
+}
+
+.addUser{
+  float: right;
+  margin-top: 40px;
+  margin-right: 70px;
+}
+
+.textBox{
+  padding-left: 20px;
+}
+
+.container{
+  margin-left: 10px;
+  margin-right: 0px;
+  width: 100%;
+
+}
+.title{
+  padding-top: 56px;
+  padding-left: 226px;
+}
+

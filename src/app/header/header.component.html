@@ -1,0 +1,91 @@
+<!--  -->
+
+<div class="row">
+  <nav
+    class="col md-2 d-none d-md-block navbar navbar-expand-lg navbar-light bg-light sidebar"
+  >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse thanh" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <img class="logo" [src] = "logo" routerLink ="/">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle report"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Report
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/remanager"
+              >Resource Summary By Manager</a
+            >
+            <!-- Button trigger modal -->
+
+            <a class="dropdown-item" routerLink="/reapp"
+              >Resource Summary By Application</a
+            >
+            <a class="dropdown-item" routerLink="/reteam"
+              >Resources Team and Role Report</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/ratecost"
+              >Rate Cost By Application</a
+            >
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-placement="top" title="Tooltip on top"
+          >
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item add" (click)="openAddUseDialog()">Add New Resource</a>
+            <!-- Button trigger modal -->
+
+            <!-- <a class="dropdown-item" href="#">View Encrypted Data</a>
+            <a class="dropdown-item" href="#">Set Passphrase for Encryption</a> -->
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/settings">Settings</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0 search projName">
+        <li class="nav-item">
+          <a class="nav-link rm text-dark font-weight-bold" href="#">
+              <img class="icon" [src] = "icon" routerLink ="/">
+            Resource Management Tracker </a>
+        </li>
+      </form>
+    </div>
+  </nav>
+</div>

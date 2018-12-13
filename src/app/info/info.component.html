@@ -1,0 +1,70 @@
+
+  <h3 class="text-center title">Resource Management Tracker</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Name
+          <br>
+          <input class= "textBox justify-content-center"type="text" placeholder="Search by name" [(ngModel)]="nameSearch" >
+        </th>
+        <th scope="col" class="text-center">Role
+            <br>
+            <input type="text" placeholder="Search by Role" [(ngModel)]="roleSearch">
+        </th>
+        <th scope="col" class="text-center">Team
+            <br>
+            <input type="text" placeholder="Search by Team" [(ngModel)]="teamSearch">
+        </th>
+        <th scope="col" class="text-center">App
+            <br>
+            <input type="text" placeholder="Search by App" [(ngModel)]="appSearch">
+        </th>
+        <th scope="col" class="text-center">Manager
+            <br>
+            <input type="text" placeholder="Search by Manager" [(ngModel)]="managerSearch">
+        </th>
+        <th scope="col" class="text-center">Location
+            <br>
+            <input type="text" placeholder="Search by Location" [(ngModel)]="locationSearch">
+        </th>
+        <th scope="col" class="text-center">Company
+            <br>
+            <input type="text" placeholder="Search by Company" [(ngModel)]="companySearch">
+        </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of infos | searchText:
+      nameSearch:roleSearch:teamSearch:appSearch:managerSearch:locationSearch:companySearch">
+
+        <th class="text-center">{{ info.name }}
+        </th>
+        <td class="text-center">{{ info.role }}</td>
+        <td class="text-center">{{ info.team }}</td>
+        <td class="text-center">{{ info.app }}</td>
+        <td class="text-center">{{ info.manager }}</td>
+        <td class="text-center">{{ info.location }}</td>
+        <td class="text-center">{{ info.company }}</td>
+      </tr>
+
+      <br />
+    </tbody>
+
+  </table>
+  <button
+  class="btn btn-light my-2 my-sm-0 addUser rounded-bottom"
+  type="submit"
+  (click) ="openAddUseDialog()">
+  <i class="fas fa-user-plus icon-3x "></i> Add Resource
+</button>
+<br>
+  <!-- <mat-paginator
+    [length]= "totalUsers" [pageSize]="usersPerPage"
+    [pageSizeOptions]="pageSizeOptions"
+    class="paginator justify-content-center"
+    (page)="onChangedPage($event)" *ngIf="infos.length > 0">No Users Found</mat-paginator> -->
+
+    <p *ngIf="infos.length <= 0" class= "text-center font-weight-bold"> No Users Found. Let's
+      <button class="add" (click) ="openAddUseDialog()">add</button> a user</p>
+
